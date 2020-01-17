@@ -1,0 +1,21 @@
+zkstart
+
+#!/bin/bash
+for i in atguigu@hadoop102 atguigu@hadoop103 atguigu@hadoop104
+do
+        echo "=============== $i ==============="
+        ssh $i 'source /etc/profile &&  /opt/module/zookeeper-3.4.10/bin/zkServer.sh start'
+done
+
+
+zkstop
+
+#!/bin/bash
+for i in atguigu@hadoop102 atguigu@hadoop103 atguigu@hadoop104
+do
+        echo "=============== $i ==============="
+        ssh $i 'source /etc/profile &&  /opt/module/zookeeper-3.4.10/bin/zkServer.sh stop'
+done
+
+
+不加source /etc/profile && ，使用群起脚本启动后，通过jps查看无启动。
